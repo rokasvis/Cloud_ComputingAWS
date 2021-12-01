@@ -4,13 +4,13 @@ Cloud computing is the delivery of on-demand computing services -- from applicat
 
 ## How does it work
 
-Rather than owning their own computing infrastructure or data centers, companies can rent access to anything from applications to storage from a cloud service provider.
+Rather than owning their own computing infrastructure or data centres, companies can rent access to anything from applications to storage from a cloud service provider.
 
 ## What are the benefits
 
-- Business don't have invest into hardware
+- Business don't to have invest into hardware
 - Services can be accessed instantly 
-- No maintanace costs
+- No maintenace costs
 - Services are scalable 
 
 ## What is IaaS, PaaS and SaaS
@@ -31,6 +31,6 @@ Amazon Web Services (AWS) is the world’s most comprehensive and broadly adopte
 
 - Comprehensive
 - Cost-Effective
-- Adaptale
+- Adaptable
 - Secure
 
