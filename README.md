@@ -34,3 +34,74 @@ Amazon Web Services (AWS) is the world’s most comprehensive and broadly adopte
 - Adaptable
 - Secure
 
+# Setting up AWS
+
+## Setting up EC2 instance
+
+https://eu-west-1.console.aws.amazon.com/console/home?region=eu-west-1
+
+Services > EC2 > Instances > Launch Instances 
+
+For this particula app selected Ubuntu 18.04 machine > t2 family > devopsstudent default 1a subnet > enable auto assign public ip > 8GB storage general purpose SSD > create/ select security group openning SSH and HTTP ports
+
+
+### Coppying APP into AWS
+
+The app that I already had set up on my `localhost` and tested on a virtual vagrant machine needed to be transfered on my AWS instance. To do so I used `git clone` command to tranfer all my files from my github respiratory: https://github.com/rokasvis/vm_devops.git
+
+### Installing dependancies
+
+Once the respiratory is clonned the depenacies need to be set up. All of the dependacies can be found on provisioning file which needed to be executed using following commands:
+
+`$ sudo chmod +x filename.sh` this is to make it executable
+
+`sh filename.sh` to run the file and install all the dependencies
+
+Once `nginx` and the right version of `nodejs` is installed run the following commands: 
+
+`node /app/seeds/seeds.js` 
+
+Change directory to app folder using `cd app`
+
+`npm install`
+
+`npm start`
+
+Should get a following response:
+
+`Your app is ready and listening on port 3000`
+
+### Connect the app to the database
+
+Create a second instance for a database creating security group and adding the ip address of the app server. Once the second instance is launched install all the dependencies that includes installing `mongodb`
+
+`sudo apt-get install -y mongodb-org=3.2.20 mongodb-org-server=3.2.20 mongodb-org-shell=3.2.20 mongodb-org-mongos=3.2.20 mongodb-org-tools=3.2.20`
+
+`sudo systemctl restart mongod`
+
+`sudo systemctl restart mongod`
+
+ssh to an app machine and create a enviroment variable `DB_HOST`
+
+`export DB_HOST="mongodb://0.0.0.0:27017/posts` (use the address for the database)
+
+App should now be connected to the database
+
+### Creating an AMI
+
+Amazon Machine Image (AMI) provides the information required to launch an instance. You must specify an AMI when you launch an instance.
+
+To create an AMI:
+
+Select an instance > image and templates > create image 
+
+### Cloud Watch, Alarms and SNS
+
+### How to make your app Highly Available and Scalable
+
+
+
+
+
+
+
