@@ -99,10 +99,49 @@ Select an instance > image and templates > create image
 
 ### How to make your app Highly Available and Scalable
 
+
 In order to make your app higly available and scalable autoscaling and load balancing tools can be applied. 
 
 - Autoscaling automatically adjust the amount of computational resources based on the servel load.
 - Load balancing distributes traffic between EC2 instances so that no one isntance gets overwhelmed.
+
+### Creating a Launch Template 
+
+- On EC2 Dashboard select `Launch Templates`
+- Name your template
+- Select an AMI created earlier
+- Instance type the same as was used for creating AMI, in this case `t2.micro`
+- Key pair `eng99`
+- For security group select previously created on that was used on the app instance `eng99_rokas_app`
+- Advanced detail > User Data:
+```
+#!/bin/bash 
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install nginx -y
+sudo systemctl restart nginx
+sudo systemctl enable nginx
+```
+- Save the template
+
+### Creating Auto Scaling Group (ASG)
+
+- EC2 Dashboard > Create Auto Scaling Group
+- Name your group and select the launch template created earlier
+- Select AZs and subnets
+`eu-west-1a`, `eu-west-1b`, `eu-west-1c`
+- Create new Application Load Banacer
+- Internet-facing load balancer scheme
+- Specify group size for your auto scaling group
+`Desired: 2 , Minimum: 2, Maximum: 3`
+- Select the topic created earlier to add SNS 
+- Review and create the group
+- Once set up 2 new instances will be created
+
+## S3
+
+
+
 
 
 

@@ -45,3 +45,5 @@ The key difference between stateful and stateless applications is that stateless
 
 Stateful applications like the Cassandra, MongoDB and mySQL databases all require some type of persistent storage that will survive service restarts.
 
+![Diagram](Diagram.png)
+
