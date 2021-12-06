@@ -99,7 +99,10 @@ Select an instance > image and templates > create image
 
 ### How to make your app Highly Available and Scalable
 
+In order to make your app higly available and scalable autoscaling and load balancing tools can be applied. 
 
+- Autoscaling automatically adjust the amount of computational resources based on the servel load.
+- Load balancing distributes traffic between EC2 instances so that no one isntance gets overwhelmed.
 
 
 
